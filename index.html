@@ -197,16 +197,26 @@
     .why-card h3{margin:0 0 8px;font-family:var(--display);font-size:21px;line-height:1.05;font-weight:600;color:#20314b}
     .why-card p{margin:0;color:#52627a;font-size:14px;line-height:1.45;font-weight:800}
 
-    footer{background:#fffdf4;padding:50px 0 26px;border-top:1px solid rgba(32,49,75,.08)}
-    .footer-grid{display:grid;grid-template-columns:1.3fr .8fr .8fr .9fr;gap:28px;padding-bottom:32px;border-bottom:1px solid rgba(32,49,75,.10)}
-    .footer-logo{height:82px;width:auto;max-width:240px;object-fit:contain;margin-bottom:12px}.footer-grid p{margin:0;max-width:350px;color:var(--text);font-size:14px;font-weight:700;line-height:1.55}footer h3{font-family:var(--display);font-size:16px;margin:0 0 13px;color:#20314b;font-weight:600}footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}footer a{font-weight:800;color:#52627a;font-size:14px}footer a:hover{color:#20314b}.footer-bottom{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:20px;color:#687891;font-size:13px;font-weight:800}
+    footer{position:relative;background:linear-gradient(180deg,#fffdf4 0%,#f3fbff 48%,#fffaf0 100%);padding:38px 0 24px;border-top:1px solid rgba(32,49,75,.08);overflow:hidden}
+    footer:before{content:"";position:absolute;left:-90px;bottom:-120px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(191,239,255,.58),transparent 68%);pointer-events:none}
+    footer:after{content:"";position:absolute;right:-90px;top:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,184,208,.34),transparent 70%);pointer-events:none}
+    .footer-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.45fr .75fr 1fr .9fr;gap:34px;padding:26px 28px 34px;border-radius:38px;background:rgba(255,255,255,.72);border:1px solid rgba(32,49,75,.09);box-shadow:0 18px 46px rgba(49,89,124,.10)}
+    .footer-brand{display:flex;flex-direction:column;align-items:flex-start}
+    .footer-logo{height:148px;width:auto;max-width:360px;object-fit:contain;margin:-34px 0 -14px;filter:drop-shadow(0 10px 18px rgba(35,74,112,.12))}
+    .footer-grid p{margin:0;max-width:390px;color:#52627a;font-size:15px;font-weight:800;line-height:1.65}
+    footer h3{font-family:var(--display);font-size:18px;margin:0 0 15px;color:#20314b;font-weight:600;letter-spacing:-.01em}
+    footer ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+    footer a{font-weight:850;color:#52627a;font-size:14px;transition:.18s ease}
+    footer a:hover{color:#20314b;transform:translateX(2px)}
+    .footer-bottom{position:relative;z-index:1;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:20px 4px 0;color:#687891;font-size:13px;font-weight:850}
+    .footer-note{color:#20314b}
 
     @media(max-width:900px){
       .nav{height:76px;min-height:76px;overflow:visible}.logo-link{height:76px;width:240px;overflow:visible}.logo-img{height:154px;max-width:390px;transform:translateY(8px);margin:0}.nav-left a{display:none}.nav-left{gap:0}.nav-right{gap:8px}.round-icon{width:42px;height:42px}
       .hero{height:680px;min-height:680px}.hero-title{font-size:clamp(42px,12vw,66px)}.hero-copy{font-size:16px}.category-grid{grid-template-columns:repeat(3,1fr)}.product-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:18px;border-radius:34px}.product-card{min-height:450px;border-radius:30px}.product-media{margin:0;border-radius:30px 30px 0 0}.footer-grid{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:560px){
-      .top-wave{font-size:12px;padding:0 12px}.nav{height:74px;min-height:74px;grid-template-columns:auto 1fr auto;overflow:visible}.logo-link{justify-content:flex-start;height:74px;width:210px;overflow:visible}.logo-img{height:142px;max-width:340px;transform:translateY(8px);margin:0}.nav-left{display:none}.hero{height:620px;min-height:620px}.hero-content{padding-top:50px}.hero-title{font-size:43px}.hero-copy{max-width:330px}.btn{width:100%;max-width:285px}.category-grid{grid-template-columns:1fr 1fr}.products-head{display:block}.view-all{margin-top:16px;display:inline-flex;align-items:center;justify-content:center;line-height:1}.product-list{grid-template-columns:1fr;gap:16px;padding:16px;border-radius:30px}.product-card{min-height:430px;border-radius:30px}.product-media{margin:0;border-radius:30px 30px 0 0}.product-info{padding:16px}.product-name{font-size:21px}.product-desc{font-size:12px}.card-bottom{align-items:center}.product-link{height:40px;align-items:center;justify-content:center;line-height:1}.why-panel{padding:28px 18px;border-radius:32px}.why-grid{grid-template-columns:1fr}.why-card{min-height:160px}.footer-grid{grid-template-columns:1fr}.footer-logo{height:86px}
+      .top-wave{font-size:12px;padding:0 12px}.nav{height:74px;min-height:74px;grid-template-columns:auto 1fr auto;overflow:visible}.logo-link{justify-content:flex-start;height:74px;width:210px;overflow:visible}.logo-img{height:142px;max-width:340px;transform:translateY(8px);margin:0}.nav-left{display:none}.hero{height:620px;min-height:620px}.hero-content{padding-top:50px}.hero-title{font-size:43px}.hero-copy{max-width:330px}.btn{width:100%;max-width:285px}.category-grid{grid-template-columns:1fr 1fr}.products-head{display:block}.view-all{margin-top:16px;display:inline-flex;align-items:center;justify-content:center;line-height:1}.product-list{grid-template-columns:1fr;gap:16px;padding:16px;border-radius:30px}.product-card{min-height:430px;border-radius:30px}.product-media{margin:0;border-radius:30px 30px 0 0}.product-info{padding:16px}.product-name{font-size:21px}.product-desc{font-size:12px}.card-bottom{align-items:center}.product-link{height:40px;align-items:center;justify-content:center;line-height:1}.why-panel{padding:28px 18px;border-radius:32px}.why-grid{grid-template-columns:1fr}.why-card{min-height:160px}.footer-grid{grid-template-columns:1fr;padding:24px 20px}.footer-logo{height:138px;margin:-30px 0 -12px}
     }
   </style>
 </head>
@@ -293,12 +303,12 @@
         <div class="why-panel">
           <div class="why-head">
             <h2 class="why-title">Why Parents Choose BabyEase</h2>
-            <p class="why-hook"><strong>Less searching. Better baby Moments.</strong></p>
+            <p class="why-hook"><strong>Less searching. Better baby essentials.</strong></p>
           </div>
           <div class="why-grid">
             <article class="why-card">
               <span class="why-icon" aria-hidden="true">👶</span>
-              <h3>Picked for real life</h3>
+              <h3>Made for real life</h3>
               <p>Useful baby essentials for everyday routines, not random clutter.</p>
             </article>
             <article class="why-card">
@@ -325,9 +335,9 @@
   <footer>
     <div class="shell">
       <div class="footer-grid">
-        <div>
+        <div class="footer-brand">
           <img class="footer-logo" src="/images/Logo%20Babyease.png" alt="BabyEase" onerror="this.onerror=null;this.src='/images/babyease-logo.png';" />
-          <p>BabyEase brings simple products for everyday baby care, first outings, feeding time, bath time, play, and comfort.</p>
+          <p>BabyEase is made for the small everyday moments — feeding, bath time, first outings, quiet naps, and the little routines that make baby care feel softer.</p>
         </div>
         <div>
           <h3>Explore</h3>
@@ -350,14 +360,16 @@
         <div>
           <h3>Store</h3>
           <ul>
-            <li><a href="https://checkout.babyease.dedyn.io/" target="_blank" rel="noopener">Checkout Store</a></li>
-            <li><a href="https://www.pinterest.com/BabyEase_US/" target="_blank" rel="noopener">Pinterest Profile</a></li>
-            <li><a href="/sitemap.xml">Sitemap</a></li>
-            <li><a href="/robots.txt">Robots.txt</a></li>
+            <li><a href="#products">Best Sellers</a></li>
+            <li><a href="#categories">Feeding</a></li>
+            <li><a href="#categories">Bath & Care</a></li>
+            <li><a href="#categories">Travel</a></li>
+            <li><a href="#categories">Play</a></li>
+            <li><a href="#categories">Comfort</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom"><span>© 2026 BabyEase. All rights reserved.</span><span>PayPal checkout powered by BabyEase store.</span></div>
+      <div class="footer-bottom"><span>© 2026 BabyEase. All rights reserved.</span><span class="footer-note">Designed for softer everyday baby care.</span></div>
     </div>
   </footer>
 
@@ -375,7 +387,7 @@
     }
 
     function cleanDescription(raw){
-      if(!raw) return 'A simple pick from the BabyEase store.';
+      if(!raw) return 'A simple BabyEase product for everyday care.';
       return raw
         .replace(/Description|Overview|Specification|Package Content|Material|Product Attributes/gi,' ')
         .replace(/\s+/g,' ')
@@ -399,7 +411,7 @@
           <a href="${product.link}" target="_blank" rel="noopener" onclick="trackProductClick('${product.title.replace(/'/g,"\\'")}')">
             <div class="product-media"><img src="${product.image}" alt="${product.title}"></div>
             <div class="product-info">
-              <span class="product-badge">BabyEase pick ${index + 1}</span>
+              <span class="product-badge">BabyEase choice ${index + 1}</span>
               <h3 class="product-name">${product.title}</h3>
               <p class="product-desc">${cleanDescription(product.description)}</p>
               <div class="card-bottom">
