@@ -292,14 +292,13 @@
         <div class="products-head">
           <div>
             <h2 class="section-title">Feeding products</h2>
-            <p class="section-sub">Live products pulled from the BabyEase Easy Orders feed for this collection test.</p>
+            <p class="section-sub">Feeding products from the BabyEase store, gathered in one place for easier shopping.</p>
           </div>
           <a class="view-all" href="/">Back home</a>
         </div>
         <div id="productGrid" class="product-list">
           <div class="loading-card">Loading feeding products…</div>
         </div>
-        <p class="collection-note">Test page: once Easy Orders category data is available in the feed, this page can filter Feeding products automatically.</p>
       </div>
     </section>
   </main>
@@ -337,12 +336,12 @@
         <div>
           <h3>Store</h3>
           <ul>
-            <li><a href="#products">Best Sellers</a></li>
-            <li><a href="#categories">Feeding</a></li>
-            <li><a href="#categories">Bath & Care</a></li>
-            <li><a href="#categories">Travel</a></li>
-            <li><a href="#categories">Play</a></li>
-            <li><a href="#categories">Comfort</a></li>
+            <li><a href="/#products">Best Sellers</a></li>
+            <li><a href="/feeding.html">Feeding</a></li>
+            <li><a href="/bath-care.html">Bath & Care</a></li>
+            <li><a href="/travel.html">Travel</a></li>
+            <li><a href="/play.html">Play</a></li>
+            <li><a href="/comfort.html">Comfort</a></li>
           </ul>
         </div>
       </div>
@@ -380,7 +379,7 @@
         return;
       }
 
-      grid.innerHTML = products.slice(0,12).map((product) => `
+      grid.innerHTML = products.map((product) => `
         <article class="product-card">
           <a href="${product.link}" target="_blank" rel="noopener" onclick="trackProductClick('${product.title.replace(/'/g,"\'")}')">
             <div class="product-media"><img src="${product.image}" alt="${product.title}" loading="lazy"></div>
@@ -422,7 +421,18 @@
             salePrice:getTagText(item,'g:sale_price')
           };
         }).filter(product => product.title && product.image && product.link);
-        renderProducts(products);
+
+        const feedingKeywords = [
+          'feeding','nursing','bottle','bib','spoon','cup','bowl','plate','food','feeder','pacifier','weaning','silicone','milk','snack'
+        ];
+        const excludedSlugs = ['summer-terry-baby-socks-knee-pads'];
+        const feedingProducts = products.filter(product => {
+          const slug = (product.link || '').split('/').pop().toLowerCase();
+          const searchable = `${product.title} ${product.description}`.toLowerCase();
+          return !excludedSlugs.includes(slug) && feedingKeywords.some(keyword => searchable.includes(keyword));
+        });
+
+        renderProducts(feedingProducts);
       })
       .catch(() => {
         const grid = document.getElementById('productGrid');
