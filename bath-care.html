@@ -423,11 +423,17 @@
         }).filter(product => product.title && product.image && product.link);
 
         const bathCareKeywords = [
-          'bath','care','towel','wash','grooming','brush','comb','sponge','shampoo','soap','clean','cleaning','nail','nasal','thermometer','skincare','skin','diaper','changing','wipe'
+          'bath','shower','bathtub','tub','shampoo','rinse','washcloth','sponge','bath toy','bathrobe','hooded towel','towel','eye protector','bath cap','shower cap'
+        ];
+        const notBathCareKeywords = [
+          'feeding','nursing','pillow','knee pad','socks','bottle','bib','teether','pacifier','meal','food','snack'
         ];
         const bathCareProducts = products.filter(product => {
+          const title = product.title.toLowerCase();
           const searchable = `${product.title} ${product.description}`.toLowerCase();
-          return bathCareKeywords.some(keyword => searchable.includes(keyword));
+          const isBathCare = bathCareKeywords.some(keyword => searchable.includes(keyword));
+          const isWrongCategory = notBathCareKeywords.some(keyword => title.includes(keyword));
+          return isBathCare && !isWrongCategory;
         });
 
         renderProducts(bathCareProducts);
